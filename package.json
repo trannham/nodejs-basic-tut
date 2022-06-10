@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/trannham/nodejs-basic-tut/issues"
   },
-  "homepage": "https://github.com/trannham/nodejs-basic-tut#readme"
+  "homepage": "https://github.com/trannham/nodejs-basic-tut#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
 }
