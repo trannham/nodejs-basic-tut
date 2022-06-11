@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/trannham/nodejs-basic-tut#readme",
   "dependencies": {
+    "@babel/core": "7.15.5",
+    "@babel/node": "7.15.4",
+    "@babel/preset-env": "7.15.6",
     "app-root-path": "3.0.0",
     "body-parser": "1.19.0",
     "dotenv": "10.0.0",
