@@ -27,7 +27,7 @@ let getDetailpage = async (req, res) => {
   let [user] = await pool.execute("SELECT * FROM users WHERE id = ?", [id]);
   console.log(req.params);
   console.log(user);
-  return res.send(JSON.stringify(user));
+  return res.send(user[0]);
 };
 
 let createNewUser = async (req, res) => {
@@ -39,8 +39,35 @@ let createNewUser = async (req, res) => {
   );
   return res.redirect("/");
 };
+
+let deleteUser = async (req, res) => {
+  let userId = req.body.userId;
+  await pool.execute("DELETE FROM users WHERE id = ?", [userId]);
+  return res.send(`User ${req.body.userId} has been deleted.`);
+};
+
+let getEditpage = async (req, res) => {
+  let id = req.params.userId;
+  let [user] = await pool.execute("SELECT * FROM users WHERE id = ?", [id]);
+  return res.render("editUser.ejs", {
+    dataUser: user[0],
+  });
+};
+
+let updateUser = async (req, res) => {
+  let { firstName, lastName, email, address, id } = req.body;
+  await pool.execute(
+    "UPDATE users set firstName= ?, lastName= ?, email= ?, address= ? WHERE id= ?",
+    [firstName, lastName, email, address, id]
+  );
+  return res.redirect("/");
+};
+
 module.exports = {
   getHomepage,
   getDetailpage,
   createNewUser,
+  deleteUser,
+  getEditpage,
+  updateUser,
 };

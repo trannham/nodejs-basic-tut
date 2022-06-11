@@ -39,3 +39,17 @@ body {
   margin-top: 15px;
   cursor: pointer;
 }
+
+.edit-user-container {
+  padding: 16px;
+  text-align: center;
+}
+
+.edit-user-container label {
+  display: block;
+}
+
+.btn-save {
+  margin-top: 15px;
+  cursor: pointer;
+}

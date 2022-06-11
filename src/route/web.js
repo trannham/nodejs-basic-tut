@@ -10,6 +10,9 @@ const initWebRoute = (app) => {
   });
 
   router.post("/create", homeController.createNewUser);
+  router.post("/delete", homeController.deleteUser);
+  router.get("/edit/:userId", homeController.getEditpage);
+  router.post("/update-user", homeController.updateUser);
 
   return app.use("/", router);
 };

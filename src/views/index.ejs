@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NodeJS Basic</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
@@ -59,9 +59,14 @@
                         <td><%= dataUser[i].firstName %></td>
                         <td><%= dataUser[i].lastName %></td>
                         <td>
-                          <button><a href="/detail/user/<%= dataUser[i].id %>" target="_blank">View</a></button>
-                          <button type=""button>Edit</button>
-                          <button type=""button>Delete</button>
+                          <button type="button"><a href="/detail/user/<%= dataUser[i].id %>" target="_blank">View</a></button>
+                          <form action="/edit/<%= dataUser[i].id %>" method="GET">
+                            <button type="submit">Edit</button>
+                          </form>        
+                          <form action="/delete" method="POST">
+                            <input type="text" hidden value="<%= dataUser[i].id %>" name="userId"/>
+                            <button type="submit">Delete</button>
+                          </form>        
                         </td>
                       </tr>
                    <% } %>
