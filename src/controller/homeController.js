@@ -10,7 +10,10 @@ let getHomepage = (req, res) => {
       return row;
     });
     console.log(JSON.stringify(data));
-    return res.render("index.ejs", { dataUser: JSON.stringify(data) });
+    return res.render("index.ejs", {
+      dataUser: data,
+      test: "text input with EJS",
+    });
   });
 };
 
